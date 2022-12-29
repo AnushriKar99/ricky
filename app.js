@@ -15,11 +15,11 @@ app.use(function (req, res, next) {
 });
 
 const rs1aRoutes = require("./sampleRemote");
-//const rs1bRoutes = require("./rs1b/sampleRemote1b");
-//const rs1cRoutes = require("./rs1c/studentServerRemote");
+const rs1bRoutes = require("./rs1b/sampleRemote1b");
+const rs1cRoutes = require("./rs1c/studentServerRemote");
 app.use("/productServer/", rs1aRoutes);
-//app.use("/messageServer/", rs1bRoutes);
-//app.use("/studentServer/", rs1cRoutes);
+app.use("/messageServer/", rs1bRoutes);
+app.use("/studentServer/", rs1cRoutes);
 
 const port = process.env.PORT || 2410;
 app.listen(port, () => console.log(`Node app listening on port ${port}!`));
